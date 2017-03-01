@@ -6,7 +6,7 @@ import Link from '../components/Link';
 //StateをViewのプロパティに落としこむ
 const mapStateToProps = (state, ownProps) => {
   return {
-    active: ownProps.filter === state.visibilityFilter
+    active: ownProps.filter.status === state.visibilityFilter
   };
 };
 

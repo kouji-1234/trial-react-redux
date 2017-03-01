@@ -4,21 +4,38 @@ import FilterLink from '../containers/FilterLink';
 class Footer extends React.Component {
   render() {
     return (
-      <p>
-        Show:
-        {' '}
-        <FilterLink filter="SHOW_ALL">
-          All
-        </FilterLink>
-        {', '}
-        <FilterLink filter="SHOW_ACTIVE">
-          Active
-        </FilterLink>
-        {', '}
-        <FilterLink filter="SHOW_COMPLETED">
-          Completed
-        </FilterLink>
-      </p>
+      <div>
+        <p>
+          状態:
+          {' '}
+          <FilterLink filter = {{status:'SHOW_ALL'}}>
+            All
+          </FilterLink>
+          {', '}
+          <FilterLink filter = {{status:'SHOW_ACTIVE'}}>
+            Active
+          </FilterLink>
+          {', '}
+          <FilterLink filter = {{status:'SHOW_COMPLETED'}}>
+            Completed
+          </FilterLink>
+        </p>
+        <p>
+          種別:
+          {' '}
+          <FilterLink filter = {{category:'SHOW_ALL'}}>
+            All
+          </FilterLink>
+          {', '}
+          <FilterLink filter = {{category:'SHOW_A'}}>
+            A
+          </FilterLink>
+          {', '}
+          <FilterLink filter = {{category:'SHOW_B'}}>
+            B
+          </FilterLink>
+        </p>
+      </div>
     );
   }
 }

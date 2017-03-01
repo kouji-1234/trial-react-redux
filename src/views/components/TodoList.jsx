@@ -14,7 +14,7 @@ class TodoList extends React.Component{
             key={todo.id}
             {...todo}
             onClick ={() => this.props.onTodoClick(todo.id)}
-          /> 
+          />
         )}
       </ul>
     );
@@ -26,7 +26,8 @@ TodoList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       completed: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired
+      text: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
   onTodoClick: PropTypes.func.isRequired
