@@ -4,9 +4,15 @@ import {addTodo} from '../../actions';
 
 
 class AddTodo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputCategory: 'A',
+    };
+  }
   render() {
+    //let inputCategory = 'A';
     let inputText;
-    let inputCategory = 'A';
     return (
       <div>
         <form onSubmit = {e => {
@@ -16,18 +22,18 @@ class AddTodo extends React.Component {
           }
           //ActionCreatorからActionを取得し、Storeに渡している
           this.props.dispatch(
-            addTodo(inputText.value, inputCategory)
+            addTodo(inputText.value, this.state.inputCategory)
           );
           inputText.value = '';
         }}>
           <input ref={node => {
             inputText = node;
           }} />
-          <input type="radio" name="categoryBtn" checked={inputCategory==='A'} value="A" onChange={() => {
-            inputCategory = 'A';
+          <input type="radio" name="categoryBtn" checked={this.state.inputCategory==='A'} value="A" onChange={node => {
+            this.state.inputCategory = node;
           }} /> A
-          <input type="radio" name="categoryBtn" checked={inputCategory==='B'} value="B" onChange={() => {
-            inputCategory = 'B';
+          <input type="radio" name="categoryBtn" checked={this.state.inputCategory==='B'} value="B" onChange={node => {
+            this.state.inputCategory = node;
           }} /> B
           <button type="submit">
             Add Todo
