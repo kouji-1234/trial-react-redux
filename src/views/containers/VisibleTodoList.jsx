@@ -4,11 +4,11 @@ import TodoList from '../components/TodoList';
 
 //フィルタリング状態によってTODOリストの絞り込み
 const getVisibleTodos = (todos, filterObj) => {
-  let visibleTodos = [];
+  let visibleTodos = todos;
   //ステータス
   switch (filterObj.status) {
     case 'SHOW_ALL':
-      visibleTodos = todos;
+      visibleTodos;
       break;
     case 'SHOW_COMPLETED':
       visibleTodos = todos.filter(t => t.completed);
