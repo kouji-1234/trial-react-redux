@@ -3,12 +3,33 @@ import {toggleTodo} from '../../actions';
 import TodoList from '../components/TodoList';
 
 //フィルタリング状態によってTODOリストの絞り込み
-const getVisibleTodos = (todos, filter) => {
-  switch (filter) {
-  case 'SHOW_ALL': return todos;
-  case 'SHOW_COMPLETED': return todos.filter(t => t.completed);
-  case 'SHOW_ACTIVE': return todos.filter(t => !t.completed);
+const getVisibleTodos = (todos, filterObj) => {
+  let visibleTodos = todos;
+  //ステータス
+  switch (filterObj.status) {
+    case 'SHOW_ALL':
+      visibleTodos;
+      break;
+    case 'SHOW_COMPLETED':
+      visibleTodos = todos.filter(t => t.completed);
+      break;
+    case 'SHOW_ACTIVE':
+      visibleTodos =  todos.filter(t => !t.completed);
+      break;
   }
+  //種別
+  switch (filterObj.category) {
+    case 'SHOW_ALL':
+      visibleTodos;
+      break;
+    case 'SHOW_A':
+      visibleTodos = visibleTodos.filter(t => t.category === 'A');
+      break;
+    case 'SHOW_B':
+      visibleTodos =  visibleTodos.filter(t => t.category === 'B');
+      break;
+  }
+  return visibleTodos;
 };
 
 //StateをViewのプロパティに落としこむ
